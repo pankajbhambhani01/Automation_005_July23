@@ -20,11 +20,20 @@ public class TestCase1 {
         element.sendKeys("Admin");
         element = driver.findElement(By.name("password"));
         element.sendKeys("admin123");
+
+         // element = driver.findElement(By.linkText("Forgot login info?"));
+       // element.click();
+
+       // element = driver.findElement(By.partialLinkText("login info?"));
+       // element.click();
     }
 }
 // DOM - document object model (HTML model) - Hyper text mark up language source
 //<tagName attributes=value > -- </tagName>
 // locator identifiers
 // name
+// id
+// linkText
+// partialLinkText
 //Assignments -> naviagete to Parabank website
 // enter any text in username and password field
