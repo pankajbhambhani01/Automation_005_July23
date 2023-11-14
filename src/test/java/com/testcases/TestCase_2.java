@@ -22,7 +22,7 @@ public class TestCase_2 {
         element.click();
     }
 }
-// xpath -> obsolute / relative
+// xpath -> absolute / relative
 // absolute -> /html/body/div/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input
 // Relative -> //*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input
 // / -> immidiate child
@@ -41,8 +41,8 @@ public class TestCase_2 {
 //*[contains(@class,'orangehrm-login-button')]
 //*[starts-with(@class,'oxd-button')]
 //*[ends-with(@class,'train_Search)]
-//li[text()='Solutions']  -- //*[text()=' Login ']
-//p[contains(text(),'Forgot your password?')]
+//li[text()='Solutions']  -- //*[text()=' Login '] -- //*[.=' Login ']
+//p[contains(text(),'Forgot your password?')]  //p[contains(.,'Forgot your password?')]
 //-------------------------------------------------------
 //form//input[@name='username']
 //form/input[@name='username']
