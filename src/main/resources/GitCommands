@@ -1,0 +1,13 @@
+----------------------------------------
+To clone the Repo
+Git clone https://github.com/pankajbhambhani01/Automation_005_July23.git
+
+To get the update from remote repo
+Git pull
+
+Repo - Remote Repo / local Repo (Repo -> Repository)
+
+Token Generate -
+ProfileIcon > settings > Developer Settings (in left Nav) > Personal Access Token > Token (Classics)
+> Generate New Token (Classic) > Provide any name and select all the boxes > click on generate token
+> Copy the Token starts with "ghp_----"
