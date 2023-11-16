@@ -1,5 +1,7 @@
 package com.testcases;
 
+import com.utility.Browser;
+import com.utility.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,15 +11,16 @@ public class TestCase_2 {
 
     public static void main(String[] args) throws Exception {
         //https://chromedriver.chromium.org/downloads
-        System.setProperty("webdriver.chrome.driver", "C:/Users/Pankaj Bhambhani/Downloads/driver/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        Browser br = new Browser();
+        br.launchBrowser("chrome");
+        br.navigateUrl(Constant.url);
+        WebDriver driver = br.getDriver();
         Thread.sleep(5000);// 5 sec wait
         WebElement element;
         element = driver.findElement(By.name("username"));
-        element.sendKeys("Admin");
+        element.sendKeys(Constant.username);
         element = driver.findElement(By.name("password"));
-        element.sendKeys("admin123");
+        element.sendKeys(Constant.password);
         element = driver.findElement(By.xpath("//*[contains(@class,'orangehrm-login-button')]"));
         element.click();
     }
@@ -37,7 +40,7 @@ public class TestCase_2 {
 //*[@value='Log In' or @type='submit1']
 //*[@value='Log In' and @type='submit1']
 //-----------------------------------------------------
-//tageName[function(@attribute,'value')]
+//tagName[function(@attribute,'value')]
 //*[contains(@class,'orangehrm-login-button')]
 //*[starts-with(@class,'oxd-button')]
 //*[ends-with(@class,'train_Search)]

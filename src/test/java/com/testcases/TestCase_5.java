@@ -5,9 +5,8 @@ import com.utility.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestCase_4 {
+public class TestCase_5 {
     public static void main(String[] args) throws Exception {
         Browser br = new Browser();
         br.launchBrowser("chrome");
@@ -23,7 +22,7 @@ public class TestCase_4 {
             System.out.println("the testcase is fail");
         }
         element = driver.findElement(By.name("username"));
-        element.sendKeys("Admin");
+        element.sendKeys(Constant.username);
         String placeHolderUsername = element.getAttribute("placeholder");
         if (placeHolderUsername.equals("Username")) {
             System.out.println("the testcase is Pass");
@@ -39,19 +38,24 @@ public class TestCase_4 {
             System.out.println("the testcase is fail");
         }
         element = driver.findElement(By.name("password"));
-        element.sendKeys("admin123");
+        element.sendKeys(Constant.password);
         String placeHolderPassword = element.getAttribute("placeholder");
         if(placeHolderPassword.equals("Password")){
             System.out.println("the testcase is pass");
         }else{
             System.out.println("the testcase is fail");
         }
-        element = driver.findElement(By.tagName("button"));
+        element = driver.findElement(By.cssSelector("button[class$='login-button']"));
         element.click();
     }
 }
 // xpath - it supports forward and backward
-//tagName[@attribute='value']//parent::tagName -- e.g. above
-//*[@name='password']//ancestor::div
-//form/div[3]
-////form/div[contains(@class,'form-row') and contains(.,'Password')]//following-sibling::div
+// CSSpath - it only support forward - faster
+// tagName[attribute='value'] -> input[placeholder='Username']
+// [attribute='value'] -> [placeholder='Username']
+// > -> immidiate child
+// contains (*)-> button[class*='orangehrm-login-button']
+// starts-with (^) -> button[class^='oxd-button']
+// ends-with ($) -> button[class$='login-button']
+// only in case of Id attribute -> input[id='firstName'] -> input#firstName
+// only in case of Class attribute -> input[class='button'] -> input.button
