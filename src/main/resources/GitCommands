@@ -11,3 +11,9 @@ Token Generate -
 ProfileIcon > settings > Developer Settings (in left Nav) > Personal Access Token > Token (Classics)
 > Generate New Token (Classic) > Provide any name and select all the boxes > click on generate token
 > Copy the Token starts with "ghp_----"
+
+-----------------------------------------------
+Pushing in remote repo
+
+git status - you should see your changed file
+git add <filename and path>
