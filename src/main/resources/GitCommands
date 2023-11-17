@@ -14,6 +14,9 @@ ProfileIcon > settings > Developer Settings (in left Nav) > Personal Access Toke
 
 -----------------------------------------------
 Pushing in remote repo
-
-git status - you should see your changed file
+git pull - to take the latest update
+git status - you should see your changed file in red
 git add <filename and path>
+git status - you should see your changed file in green
+git commit -m "your name and page name "
+git push -> provide your username and token
