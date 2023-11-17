@@ -1,11 +1,10 @@
-package com.testcases;
+package com.testcases.orangehrm;
 
 import com.utility.Browser;
-import com.utility.Constant;
+import com.utility.Constant_1;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestCase_2 {
 
@@ -13,14 +12,14 @@ public class TestCase_2 {
         //https://chromedriver.chromium.org/downloads
         Browser br = new Browser();
         br.launchBrowser("chrome");
-        br.navigateUrl(Constant.url);
+        br.navigateUrl(Constant_1.url);
         WebDriver driver = br.getDriver();
         Thread.sleep(5000);// 5 sec wait
         WebElement element;
         element = driver.findElement(By.name("username"));
-        element.sendKeys(Constant.username);
+        element.sendKeys(Constant_1.username);
         element = driver.findElement(By.name("password"));
-        element.sendKeys(Constant.password);
+        element.sendKeys(Constant_1.password);
         element = driver.findElement(By.xpath("//*[contains(@class,'orangehrm-login-button')]"));
         element.click();
     }
