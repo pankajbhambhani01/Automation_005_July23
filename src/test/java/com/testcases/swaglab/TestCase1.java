@@ -1,9 +1,7 @@
-package com.testcases.parabank;
+package com.testcases.swaglab;
 
-import com.pages.orangehrm.HomePage;
 import com.utility.Browser;
 import com.utility.Constant;
-import com.utility.Constant_1;
 
 public class TestCase1 {
 
