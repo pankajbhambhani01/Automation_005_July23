@@ -6,7 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 public class LeftNavigationPage {
-    public static void main(String[]args) throws Exception{
+    @Test
+    public void LeftNavigationPage()throws Exception{
         System.setProperty("webdriver.chrome.driver","C:/Program Files/chromedriver-win64/chromedriver.exe");
         WebDriver driver=new ChromeDriver();
         driver.get("https://www.saucedemo.com/v1/inventory.html");
