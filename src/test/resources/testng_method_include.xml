@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default Suite">
+    <test name="Automation_005_July23">
+        <classes>
+            <class name="com.testcases.testngtest.LoginTestCases">
+             <methods>
+                 <include name="testCase003"/>
+             </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
