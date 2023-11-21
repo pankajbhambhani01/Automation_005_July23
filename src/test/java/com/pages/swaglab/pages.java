@@ -5,6 +5,8 @@ public class pages {
     // Login Page -> Ritvik -> LoginPage.java
     // Left Navigation Page -> Datta -> LeftNavigationPage.java
     // Home Page -> Nilesh
-    // cart page ->
-    //
+    // cart page -> akansha
+    // checkout page ->
+    // CheckoutOverview page ->
+    // final order page ->
 }
