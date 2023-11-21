@@ -6,11 +6,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 public class CartPage {
-    public static void main(String[]args) throws Exception{
+    @Test
+    public void CartPage()throws Exception{
         System.setProperty("webdriver.chrome.driver","C:/Program Files/chromedriver-win64/chromedriver.exe");
         WebDriver driver=new ChromeDriver();
         driver.get("https://www.saucedemo.com/v1/cart.html");
         driver.manage().window().maximize();
+        Thread.sleep(3000);
         driver.findElement(By.cssSelector(".subheader"));
         System.out.println("Checkout Overviwes Shows ");
         driver.findElement(By.cssSelector(".cart_desc_label"));
