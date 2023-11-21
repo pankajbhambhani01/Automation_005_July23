@@ -13,6 +13,10 @@ ProfileIcon > settings > Developer Settings (in left Nav) > Personal Access Toke
 > Copy the Token starts with "ghp_----"
 
 -----------------------------------------------
+First time -
+git config --global user.email "your email id"
+git config --global user.name "your name"
+--------------------------------------------------
 Pushing in remote repo
 git pull - to take the latest update
 git status - you should see your changed file in red
