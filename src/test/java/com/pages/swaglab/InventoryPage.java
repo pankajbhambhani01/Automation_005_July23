@@ -10,11 +10,13 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class InventoryPage {
-    public static void main(String[]args) throws Exception{
+    @Test
+    public void inventoryPage() throws Exception{
         System.setProperty("webdriver.chrome.driver","C:/Program Files/chromedriver-win64/chromedriver.exe");
         WebDriver driver=new ChromeDriver();
         driver.get("https://www.saucedemo.com/v1/inventory.html");
         driver.manage().window().maximize();
+        Thread.sleep(3000);
         List<WebElement> elementlist=driver.findElements(By.partialLinkText("Sauce"));
         System.out.println("Sauce Name Element size:" + elementlist.size());
 
