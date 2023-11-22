@@ -2,31 +2,47 @@ package com.pages.swaglab;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginPage {
+
     @Test
-    public void LoginPage() throws Exception{
-        System.setProperty("webdriver.chrome.driver","C:/Program Files/chromedriver-win64/chromedriver.exe");
-        WebDriver driver=new ChromeDriver();
+    public void testcase_01() throws InterruptedException {
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\Downloads\\Drivers\\chromedriver-win64\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/v1/");
+        Thread.sleep(4000);
+
         driver.manage().window().maximize();
-        driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        driver.findElement(By.id("password")).sendKeys("secret_sauce");
-        driver.findElement(By.id("login-button")).click();
-        System.out.println("Login is:Successfully");
 
-//        driver.findElement(By.xpath("//img[@src='img/Login_Bot_graphic.png']"));
-//        System.out.println("SwagLab Text is Displayed");
-//        driver.findElement(By.xpath("//div[@class='login_logo']"));
-//        System.out.println("SwagLab Image is Displayed");
+        WebElement element;
+        element = driver.findElement(By.name("user-name"));
+        element.sendKeys("performance_glitch_user");
+        element = driver.findElement(By.name("password"));
+        element.sendKeys("secret_sauce");
+        Thread.sleep(3000);
+        element = driver.findElement(By.id("login-button"));
+        element.click();
 
+        String act_title = "Swag Labs";
+        String exp_title = driver.getTitle();
 
-       String CurrentWindowHandle= driver.getWindowHandle();
-       driver.switchTo().window(CurrentWindowHandle);
-       driver.findElement(By.className("bm-burger-button"));
+        //System.out.println(exp_title);
 
+        Assert.assertEquals(exp_title,"Swag Labs");
 
-    }}
+//        if(exp_title.equals(act_title)==true)
+//        {
+//            System.out.println("Test is passed");
+//        }
+//        else
+//        {
+//            System.out.println("Test is failed");
+//        }
+        driver.close();
 
+    }
+}

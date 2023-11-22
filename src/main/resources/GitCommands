@@ -24,3 +24,7 @@ git add <filename and path>
 git status - you should see your changed file in green
 git commit -m "your name and page name "
 git push -> provide your username and token
+-----------------------------------------------
+git pull if doesn't work ( Conflict )
+git reset --hard
+git pull 
