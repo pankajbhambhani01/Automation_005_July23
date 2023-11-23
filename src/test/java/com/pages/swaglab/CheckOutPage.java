@@ -17,15 +17,15 @@ public class CheckOutPage {
         this.driver = driver;
     }
     public void enterFirstname(String FirstName) {
-        WebElement element = driver.findElement(By.xpath("//*[@id='first-name' or @placeholder='First Name']"));
+        WebElement element = driver.findElement(By.xpath("//*[@id='first-name' and @placeholder='First Name']"));
         element.sendKeys(FirstName);
     }
     public void enterLastname(String LastName) {
-        WebElement element = driver.findElement(By.xpath("//*[@id='last-name' or @placeholder='Last Name']"));
+        WebElement element = driver.findElement(By.xpath("//*[@id='last-name' and @placeholder='Last Name']"));
         element.sendKeys(LastName);
     }
     public void enterpostalcode(String ZipCode) {
-        WebElement element = driver.findElement(By.xpath("//*[@id='postal-code' or @placeholder='Zip/Postal Code']"));
+        WebElement element = driver.findElement(By.xpath("//*[@id='postal-code' and @placeholder='Zip/Postal Code']"));
         element.sendKeys(ZipCode);
     }
     public void clickCancel(){
