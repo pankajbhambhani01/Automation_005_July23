@@ -2,25 +2,24 @@ package com.pages.swaglab;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Test;
 
 public class LeftNavigationPage {
-    @Test
-    public void LeftNavigationPage()throws Exception{
-        System.setProperty("webdriver.chrome.driver","C:/Program Files/chromedriver-win64/chromedriver.exe");
-        WebDriver driver=new ChromeDriver();
-        driver.get("https://www.saucedemo.com/v1/inventory.html");
-        driver.manage().window().maximize();
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//button[normalize-space()='Open Menu']")).click();
-        System.out.println("All Items Page is opened");
-        driver.findElement(By.xpath("//a[@id='inventory_sidebar_link']")).click();
-        System.out.println("Product page is opened");
-//        driver.findElement(By.xpath("//a[@id='about_sidebar_link']")).click();
-//        System.out.println("About page is opened");
-//        driver.findElement(By.cssSelector("#logout_sidebar_link']']")).click();
-//        System.out.println("Logout page is Logout");
-//        driver.findElement(By.xpath("//a[@id='reset_sidebar_link']")).click();
-//        System.out.println("Clicked on Rest App state");
-}}
+    WebDriver driver;
+
+   public LeftNavigationPage(WebDriver d){
+        driver=d;
+    }
+    By menubutton= By.xpath("//button[normalize-space()='Open Menu']");
+    By Allitemsbutton=By.id("inventory_sidebar_link");
+    By Aboutbutton=By.xpath("//a[@id='about_sidebar_link']");
+    By Logoutbutton=By.xpath("//a[@id='logout_sidebar_link']");
+    By ResetAppStatebutton=By.xpath("//a[@id='reset_sidebar_link']");
+
+    public void clickonmenubutton(){ driver.findElement(menubutton).click();
+    }
+    public void clickonAllittem(){driver.findElement(Allitemsbutton).click();}
+    public void clickonAboutbutton(){ driver.findElement(Aboutbutton).click();}
+      public void clickonlogoutbutton(){driver.findElement(Logoutbutton).click();}
+    public void clickonReset(){ driver.findElement(ResetAppStatebutton).click();}
+
+}

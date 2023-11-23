@@ -3,46 +3,35 @@ package com.pages.swaglab;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class LoginPage {
 
-    @Test
-    public void testcase_01() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\Downloads\\Drivers\\chromedriver-win64\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://www.saucedemo.com/v1/");
-        Thread.sleep(4000);
+    private WebDriver driver;
 
-        driver.manage().window().maximize();
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
-        WebElement element;
-        element = driver.findElement(By.name("user-name"));
-        element.sendKeys("performance_glitch_user");
-        element = driver.findElement(By.name("password"));
-        element.sendKeys("secret_sauce");
-        Thread.sleep(3000);
-        element = driver.findElement(By.id("login-button"));
+    public void setUsername(String username) {
+        WebElement element = driver.findElement(By.name("user-name"));
+        element.sendKeys(username);
+    }
+
+    public void setPassword(String password) {
+        WebElement element = driver.findElement(By.name("password"));
+        element.sendKeys(password);
+        //driver.findElement(By.name("password")).sendKeys(password);
+    }
+
+    public void clickLogin() {
+        WebElement element = driver.findElement (By.id("login-button"));
         element.click();
-
-        String act_title = "Swag Labs";
-        String exp_title = driver.getTitle();
-
-        //System.out.println(exp_title);
-
-        Assert.assertEquals(exp_title,"Swag Labs");
-
-//        if(exp_title.equals(act_title)==true)
-//        {
-//            System.out.println("Test is passed");
-//        }
-//        else
-//        {
-//            System.out.println("Test is failed");
-//        }
-        driver.close();
-
     }
 }
+
+
+
+
