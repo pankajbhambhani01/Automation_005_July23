@@ -33,7 +33,7 @@ public class CheckOutPage {
 }
 
 
-
+               //...
         //*[contains(@class,'footer_robot')]
         //*[contains(@class,'cart_button')]
         //*[contains(@class,'btn_secondary')]
