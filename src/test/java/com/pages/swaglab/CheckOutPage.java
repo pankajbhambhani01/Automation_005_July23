@@ -5,26 +5,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class CheckOutPage {
-    // public static void main(String[]args) throws Exception {
-    //    System.setProperty("webdriver.chrome.driver", "C:/Users/JMS/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe");
-    //    WebDriver driver = new ChromeDriver();
-    //   driver.get("https://www.saucedemo.com/v1/");
-    // driver.manage().window().maximize();
-    //   Thread.sleep(3000);
 
     private WebDriver driver;
     public CheckOutPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void enterFirstname(String FirstName) {
+    public void enterFirstName(String FirstName) {
         WebElement element = driver.findElement(By.xpath("//*[@id='first-name' and @placeholder='First Name']"));
         element.sendKeys(FirstName);
     }
-    public void enterLastname(String LastName) {
+    public void enterLastName(String LastName) {
         WebElement element = driver.findElement(By.xpath("//*[@id='last-name' and @placeholder='Last Name']"));
         element.sendKeys(LastName);
     }
-    public void enterpostalcode(String ZipCode) {
+    public void enterPostalCode(String ZipCode) {
         WebElement element = driver.findElement(By.xpath("//*[@id='postal-code' and @placeholder='Zip/Postal Code']"));
         element.sendKeys(ZipCode);
     }
@@ -34,10 +28,6 @@ public class CheckOutPage {
     }
     public void clickContinue(){
         WebElement element = driver.findElement(By.xpath("//*[contains(@class,'cart_button')]"));
-        element.click();
-    }
-    public void RobotImg() {
-        WebElement element = driver.findElement(By.xpath("//*[contains(@class,'footer_robot')]"));
         element.click();
     }
 }
