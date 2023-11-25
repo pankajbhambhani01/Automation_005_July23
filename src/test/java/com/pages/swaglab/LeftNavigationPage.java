@@ -19,7 +19,7 @@ public class LeftNavigationPage {
     }
     public void clickonAllittem(){driver.findElement(Allitemsbutton).click();}
     public void clickonAboutbutton(){ driver.findElement(Aboutbutton).click();}
-      public void clickonlogoutbutton(){driver.findElement(Logoutbutton).click();}
+    public void clickonlogoutbutton(){driver.findElement(Logoutbutton).click();}
     public void clickonReset(){ driver.findElement(ResetAppStatebutton).click();}
 
 }
