@@ -64,4 +64,4 @@ public class LoginTestCases {
 // by default all methods have priority as 0
 // if 2 methods has same priority then it follows the alphabetical order
 // by default all the @test methods are enabled
-// @BeforeSuit > @BeforeTest > BeforeClass > @Before Method -- @AfterMethod > AfterClass > AfterTest > AfterSuit
+// @BeforeSuit > @BeforeTest > BeforeGroups > BeforeClass > @Before Method -@Test- @AfterMethod > AfterClass > AfterGroup > AfterTest > AfterSuit

@@ -10,33 +10,45 @@ import org.testng.Assert;
 import java.util.List;
 
 // Page object model -> POM -> selenium
+// Page factory
 // Project object model -> pom.xml -> maven
 public class HomeParaBank {
     private WebDriver driver;
 
+    @FindBy(name = "username")
+    private WebElement txt_username;
+
+    @FindBy(name = "password")
+    private WebElement txt_password;
+
+    @FindBy(xpath = "//*[@value='Log In']")
+    private WebElement btn_login;
+
+    @FindBy(partialLinkText = "Forgot login ")
+    private WebElement lnk_forgotlogin;
+
+    @FindBy(xpath = "//form//b")
+    private List<WebElement> lbl_labels;
+
     public HomeParaBank(WebDriver driver){
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void enterUsername(String username){
-        WebElement element = driver.findElement(By.name("username"));
-        element.sendKeys(username);
+        txt_username.sendKeys(username);
     }
 
     public void enterPassword(String password){
-       // WebElement element = driver.findElement(By.name("password"));
-        //element.sendKeys(password);
-        driver.findElement(By.name("password")).sendKeys(password);
+        txt_password.sendKeys(password);
     }
 
     public void clickLoginButton(){
-        WebElement element = driver.findElement(By.xpath("//*[@value='Log In']"));
-        element.click();
+        btn_login.click();
     }
 
     public void clickForgetLoginInfo(){
-        WebElement element = driver.findElement(By.partialLinkText("Forgot login "));
-        element.click();
+        lnk_forgotlogin.click();
     }
 
     public void clickRegister(){
@@ -45,14 +57,18 @@ public class HomeParaBank {
     }
 
     public void validateUsernameLabel(String username){
-        List<WebElement> elements = driver.findElements(By.xpath("//form//b"));
-        String usernameLbl = elements.get(0).getText();
+        String usernameLbl = lbl_labels.get(0).getText();
         Assert.assertEquals(usernameLbl, username);
     }
 
     public void validatePasswordLabel(String password){
-        List<WebElement> elements = driver.findElements(By.xpath("//form//b"));
-        String passwordLbl = elements.get(1).getText();
+        String passwordLbl = lbl_labels.get(1).getText();
         Assert.assertEquals(passwordLbl, password);
     }
 }
+// button -> btn_nameofbutton
+//input/textbox -> txt_
+// link -> lnk_
+//check -> chk_
+// dropdown -> dd_
+// lable -> lbl_

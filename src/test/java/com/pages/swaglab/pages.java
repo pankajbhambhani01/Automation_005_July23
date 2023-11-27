@@ -6,7 +6,7 @@ public class pages {
     // Left Navigation Page -> Datta -> LeftNavigationPage.java
     // Home Page -> Nilesh
     // cart page -> Akansha
-    // checkout page ->
-    // CheckoutOverview page ->
+    // checkout page -> shabaz
+    // CheckoutOverview page -> shubham
     // final order page ->
 }
