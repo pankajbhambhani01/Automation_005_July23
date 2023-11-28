@@ -4,29 +4,53 @@ import com.pages.swaglab.HomePage;
 import com.pages.swaglab.LoginPage;
 import com.utility.Browser;
 import com.utility.Constant;
+import com.utility.Util;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class TestCase1 {
+import java.util.Properties;
 
-    @Test
-    public void testCase001() throws Exception {
-        Browser br = new Browser();
+public class TestCase1 {
+    Browser br = null;
+
+    @BeforeMethod
+    public void beforeMethod(){
+        br = new Browser();
         br.launchBrowser("chrome");
         br.navigateUrl(Constant.url);
-        Thread.sleep(5000);
-        LoginPage loginPage = new LoginPage(br.getDriver());
-        loginPage.setUsername("standard_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLogin();
-        Thread.sleep(5000);
-        HomePage homePage = new HomePage(br.getDriver());
-        homePage.validatePrice("Sauce Labs Bike Light", "$9.99");
-        homePage.validateButton("Sauce Labs Bike Light", "add to cart");
-        homePage.validateDetails("Sauce Labs Bike Light", "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.");
-        homePage.clickButtonToCart("Sauce Labs Bike Light");
-        homePage.validateButton("Sauce Labs Bike Light", "REMOVE");
+        br.maximize();
+    }
 
+    @Test
+    public void testCase001() {
+        Properties td = Util.readProperties("testCase001");
+        Util.wait(5000);
+        LoginPage loginPage = new LoginPage(br.getDriver());
+        loginPage.setUsername(td.getProperty("username"));
+        loginPage.setPassword(td.getProperty("password"));
+        loginPage.clickLogin();
+        Util.wait(5000);
+        HomePage homePage = new HomePage(br.getDriver());
+        homePage.validatePrice(td.getProperty("productName"), td.getProperty("productPrice"));
+        homePage.validateButton(td.getProperty("productName"), "ADD TO CART");
+        homePage.validateDetails(td.getProperty("productName"), td.getProperty("productDescription"));
+        homePage.clickButtonToCart(td.getProperty("productName"));
+        homePage.validateButton(td.getProperty("productName"), "REMOVE");
+    }
+
+    @Test
+    public void testcase002(){
+        //
+        //
+        //
+    }
+
+    @AfterMethod
+    public void afterMethod(){
+        Util.takeScreenShot(br.getDriver(), "testCase001");
+        br.closeBrowser();
     }
 }
 

@@ -23,4 +23,13 @@ public class Browser {
     public void navigateUrl(String url){
         this.driver.get(url);
     }
+
+    public void maximize(){
+        driver.manage().window().maximize();
+    }
+
+    public void closeBrowser(){
+        driver.close(); // to close the current window
+        //driver.quit(); -> to close all the windows open by webdriver
+    }
 }

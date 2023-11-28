@@ -24,7 +24,7 @@ public class HomePage {
 
     public void validateButton(String product, String button){
         WebElement element = driver.findElement(By.xpath("//*[contains(@class,'inventory_item_name') and text() = '" + product + "']//ancestor::div[@class='inventory_item']//button"));
-        String expectedButtonText = element.getText().toLowerCase();
+        String expectedButtonText = element.getText();
         Assert.assertEquals(expectedButtonText, button);
     }
 
@@ -35,7 +35,7 @@ public class HomePage {
     }
 
     public void validateDetails(String product, String description){
-        WebElement element = driver.findElement(By.xpath("//*[contains(@class,'inventory_item_name') and text() = '" + product + "']//ancestor::div[@class='inventory_item']//div[@class='inventory_item_desc'"));
+        WebElement element = driver.findElement(By.xpath("//*[contains(@class,'inventory_item_name') and text() = '" + product + "']//ancestor::div[@class='inventory_item']//div[@class='inventory_item_desc']"));
         String actualDescription = element.getText();
         Assert.assertEquals(actualDescription, description);
     }
