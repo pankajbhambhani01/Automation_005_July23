@@ -8,18 +8,51 @@
     <artifactId>Automation_005_July23</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <selenium-version>2.53.0</selenium-version>
+        <testng-version>6.14.3</testng-version>
+        <compiler-version>3.8.0</compiler-version>
+        <java-version>1.8</java-version>
+        <surefire-version>3.0.0-M6</surefire-version>
+        <testngxml>testng.xml</testngxml>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>2.53.0</version>
+            <version>${selenium-version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.14.3</version>
+            <version>${testng-version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler-version}</version>
+                <configuration>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire-version}</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${testngxml}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

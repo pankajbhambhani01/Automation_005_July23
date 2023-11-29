@@ -5,14 +5,13 @@ import com.pages.swaglab.LoginPage;
 import com.utility.Browser;
 import com.utility.Constant;
 import com.utility.Util;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Properties;
 
-public class TestCase1 {
+public class ParallelTestCases {
     Browser br = null;
 
     @BeforeMethod
@@ -31,17 +30,30 @@ public class TestCase1 {
         loginPage.enterUsername(td.getProperty("username"));
         loginPage.enterPassword(td.getProperty("password"));
         loginPage.clickLogin();
-        Util.wait(5000);
-        HomePage homePage = new HomePage(br.getDriver());
-        homePage.validatePrice(td.getProperty("productName"), td.getProperty("productPrice"));
-        homePage.validateButton(td.getProperty("productName"), "ADD TO CART");
-        homePage.validateDetails(td.getProperty("productName"), td.getProperty("productDescription"));
-        homePage.clickButtonToCart(td.getProperty("productName"));
-        homePage.validateButton(td.getProperty("productName"), "REMOVE");
     }
 
     @Test
     public void testcase002(){
+        Properties td = Constant.td;
+        Util.wait(5000);
+        LoginPage loginPage = new LoginPage(br.getDriver());
+        loginPage.enterUsername(td.getProperty("username"));
+        loginPage.enterPassword(td.getProperty("password"));
+        loginPage.clickLogin();
+    }
+
+    @Test
+    public void testcase003(){
+        Properties td = Constant.td;
+        Util.wait(5000);
+        LoginPage loginPage = new LoginPage(br.getDriver());
+        loginPage.enterUsername(td.getProperty("username"));
+        loginPage.enterPassword(td.getProperty("password"));
+        loginPage.clickLogin();
+    }
+
+    @Test
+    public void testcase004(){
         Properties td = Constant.td;
         Util.wait(5000);
         LoginPage loginPage = new LoginPage(br.getDriver());

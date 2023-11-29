@@ -20,7 +20,7 @@ public class LoginPage {
 
     @FindBy(id = "login-button") private WebElement btn_login;
 
-    @FindBy(xpath = "/html/body/div[1]") private WebElement login_logo;
+    @FindBy(className = "/html/body/div[1]") private WebElement login_logo;
 
     @FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/h3/button/svg/path") private WebElement path_fill;
 
