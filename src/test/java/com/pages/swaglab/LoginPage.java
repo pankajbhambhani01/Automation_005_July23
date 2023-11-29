@@ -20,11 +20,11 @@ public class LoginPage {
 
     @FindBy(id = "login-button") private WebElement btn_login;
 
-    @FindBy(xpath = "/html/body/div[1]") private WebElement login_logo;
+    @FindBy(className = "login_logo")private WebElement logo;
 
-    @FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/h3/button/svg/path") private WebElement path_fill;
+    @FindBy(className = "error-button") private WebElement error_btn;
 
-    @FindBy(xpath = "/html/body/div[2]/div[1]/img") private WebElement login_bot;
+    @FindBy(className = "bot_column") private WebElement login_bot;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -44,6 +44,5 @@ public class LoginPage {
     }
 
 }
-
 
 
