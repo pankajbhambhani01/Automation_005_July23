@@ -50,8 +50,8 @@ public class CheckoutOverviewPage {
 
       public void clickFinishBtn(){
          wait.until(ExpectedConditions.elementToBeClickable(btn_Finish)).click();
-      Reporter.log("Finish Button Clicked");
-      }
-
-
+          Reporter.log("Finish Button Clicked");
    }
+
+
+}
