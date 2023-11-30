@@ -3,3 +3,4 @@ target/
 Automation_005_July23.iml
 test-output
 src/test/resources/ScreenShot
+src/java/resources/driver/chromedriver.exe

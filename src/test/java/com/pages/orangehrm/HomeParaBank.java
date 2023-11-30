@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.List;
 // Project object model -> pom.xml -> maven
 public class HomeParaBank {
     private WebDriver driver;
+    private WebDriverWait wait;
 
     @FindBy(name = "username")
     private WebElement txt_username;
@@ -33,18 +36,22 @@ public class HomeParaBank {
     public HomeParaBank(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, 90);
     }
 
     public void enterUsername(String username){
-        txt_username.sendKeys(username);
+        WebElement ele = wait.until(ExpectedConditions.visibilityOf(txt_username));
+        ele.sendKeys(username);
     }
 
     public void enterPassword(String password){
-        txt_password.sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOf(txt_password)).sendKeys(password);
+       // txt_password.sendKeys(password);
     }
 
     public void clickLoginButton(){
-        btn_login.click();
+        WebElement ele = wait.until(ExpectedConditions.elementToBeClickable(btn_login));
+        ele.click();
     }
 
     public void clickForgetLoginInfo(){

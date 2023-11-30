@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class Browser {
     private WebDriver driver = null;
 
@@ -13,11 +15,12 @@ public class Browser {
 
     public void launchBrowser(String browserName){
         if(browserName.equalsIgnoreCase("chrome")){
-            System.setProperty("webdriver.chrome.driver", "C:/Users/Pankaj Bhambhani/Downloads/driver/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
             driver = new ChromeDriver();
         }else if(browserName.equalsIgnoreCase("edge")){
 
         }
+        driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
     }
 
     public void navigateUrl(String url){

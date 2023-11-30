@@ -1,0 +1,8 @@
+1) Download from Required softwares - apache-maven-3.6.3-bin.zip from shared drive
+2) Keep in you system and extract the folder
+3) Copy the Path till bin folder
+4) Environment variables - System Environment varaibles
+5) "Environment Variables" > click
+6) System variables > new > MAVEN_HOME and Provide the path till bin and click ok
+7) look for path variable > add path -> %MAVEN_HOME%\bin
+8) How to check ?  mvn --version

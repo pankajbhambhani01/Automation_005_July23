@@ -43,8 +43,8 @@ public class TestCase1 {
     @Test
     public void testcase002(){
         Properties td = Constant.td;
-        Util.wait(5000);
         LoginPage loginPage = new LoginPage(br.getDriver());
+        loginPage.validateSwagLabsLogo();
         loginPage.enterUsername(td.getProperty("username"));
         loginPage.enterPassword(td.getProperty("password"));
         loginPage.clickLogin();
