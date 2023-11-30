@@ -5,10 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 public class CheckOutPage {
 
     private WebDriver driver;
+    private WebDriverWait wait;
+
     @FindBy(xpath = "//*[@id='first-name' and @placeholder='First Name']")
     private WebElement txt_FirstName;
 
@@ -30,36 +36,44 @@ public class CheckOutPage {
     @FindBy(xpath = "//*[starts-with(@class,'svg-inline--fa')]")
     private WebElement btn_CheckOutbtn;
 
-    public CheckOutPage(WebDriver driver){
+    public CheckOutPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, 90);
     }
 
-    public void enterFirstName(String firstname){
-        txt_FirstName.sendKeys(firstname);
+    public void enterFirstName(String firstname) {
+        wait.until(ExpectedConditions.visibilityOf(txt_FirstName)).sendKeys(firstname);
+        Reporter.log("Entered The First Name" + firstname);
     }
 
-    public void enterLastName(String lastname){  txt_LastName.sendKeys(lastname); }
-
-    public void enterZipCode(String zipcode){  txt_ZipCode.sendKeys(zipcode); }
-
-    public void clickCancel(){
-        btn_Cancel.click();
+    public void enterLastName(String lastname) {
+        wait.until(ExpectedConditions.visibilityOf(txt_LastName)).sendKeys(lastname);
+        Reporter.log("Entered The Last Name" + lastname);
     }
 
-    public void clickContinue(){
-        btn_Continue.click();
+    public void enterZipCode(String zipcode) {
+        wait.until(ExpectedConditions.visibilityOf(txt_ZipCode)).sendKeys(zipcode);
+        Reporter.log("Entered The Last Name" + zipcode);
     }
 
-    public void clickMenu(){ btn_Continue.click(); }
-
-    public void clickCheckOutbtn(){ btn_CheckOutbtn.click(); }
+    public void clickCancel() {
+        wait.until(ExpectedConditions.elementToBeClickable(btn_Cancel)).click();
+        Reporter.log("Cancel button clicked");
     }
 
-    
-        //*[contains(@class,'cart_button')]
-        //*[contains(@class,'btn_secondary')]
-        //driver.findElement(By.xpath("//*[@id='first-name' or @placeholder='First Name']")).click();
-        //driver.findElement(By.xpath("//*[@id='last-name' or @placeholder='Last Name']")).click();
-        //*[@id='postal-code' or @placeholder='Zip/Postal Code']
-       //*[contains(@class,'btn_secondary')]
+    public void clickContinue() {
+        wait.until(ExpectedConditions.elementToBeClickable(btn_Continue)).click();
+        Reporter.log("Continue button clicked");
+    }
+
+    public void clickMenu() {
+        wait.until(ExpectedConditions.elementToBeClickable(btn_Menu)).click();
+        Reporter.log("Menu button clicked");
+    }
+
+    public void clickCheckOutbtn() {
+        wait.until(ExpectedConditions.elementToBeClickable(btn_CheckOutbtn)).click();
+        Reporter.log("CheckOut button clicked");
+    }
+}
