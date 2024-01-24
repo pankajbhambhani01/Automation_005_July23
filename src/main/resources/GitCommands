@@ -27,4 +27,13 @@ git push -> provide your username and token
 -----------------------------------------------
 git pull if doesn't work ( Conflict )
 git reset --hard
-git pull 
+git pull
+----------------------------------------------
+api automation
+git branch -- ?
+selenium grid
+actions in selenium
+Map
+framework structure
+------------------------------------------------
+Git/Maven/ + api manual revise - we will discuss

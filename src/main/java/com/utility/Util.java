@@ -1,5 +1,9 @@
 package com.utility;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -39,5 +43,39 @@ public class Util {
         }catch(Exception e){
             System.out.println("the exception while taking screenshot " + e.toString());
         }
+    }
+
+    public static String convertToString(Object o){
+        String s;
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            s = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(o);
+        }catch(Exception e){
+            s = "";
+            System.out.println(e);
+        }
+        return  s;
+    }
+
+    public static RequestSpecification RS_Post(String body){
+        RequestSpecification rs = RestAssured
+                .given()
+                .header("Authorization",Constant.authToken)
+                .header("Content-Type", "application/json")
+                .body(body);
+        return rs;
+    }
+
+    public static Response R_Post(RequestSpecification rs){
+        Response resp = rs
+                .when()
+                .post(Constant.endPoint)
+                .thenReturn();
+        resp.prettyPrint();
+        return resp;
+    }
+
+    public static void validateStatusCode(Response resp, int code){
+        resp.then().statusCode(code);
     }
 }

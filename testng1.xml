@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Swag Lab Automation" >
+    <listeners>
+        <listener class-name="com.listners.TestListners"/>
+    </listeners>
+    <test name="Regression Swag Lab">
+        <classes>
+            <class name="com.testcases.swaglab.TestCase1">
+                <methods>
+                    <include name="testCase001"/>
+                </methods>
+            </class>
+            
+        </classes>
+    </test>
+</suite>

@@ -2,9 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Default Suite">
     <test name="Automation_005_July23">
+        <parameter name="username" value="admin"/>
         <groups>
             <run>
-                <include name="smoke"/>
+                <include name="smo.*"/>
             </run>
         </groups>
 <!--        <classes>-->

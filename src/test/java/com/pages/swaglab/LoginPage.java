@@ -3,6 +3,7 @@ package com.pages.swaglab;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,6 +12,8 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LoginPage {
@@ -30,10 +33,20 @@ public class LoginPage {
 
     @FindBy(className = "bot_column") private WebElement login_bot;
 
+    @FindBy(xpath = "") private WebElement signIn;
+
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
         wait = new WebDriverWait(driver, 90);
+    }
+    
+    public void HoverSignIn(){
+        WebElement ele = wait.until(ExpectedConditions.visibilityOf(signIn));
+        Actions ac = new Actions(this.driver);
+        ac.moveToElement(ele).build().perform(); // mouse hover
+        // Right click -> ac.contextClick(ele).build().perform();
+        //drag and drop -> ac.clickAndHold(ele1).moveToElement(ele2).release(ele1).build().perform();
     }
 
     public void enterUsername(String username) {
@@ -44,7 +57,6 @@ public class LoginPage {
     public void enterPassword(String password) {
         wait.until(ExpectedConditions.visibilityOf(txt_password)).sendKeys(password);
         Reporter.log("Entered the password " + password);
-
     }
     public void clickLogin() {
         wait.until(ExpectedConditions.elementToBeClickable(btn_login)).click();

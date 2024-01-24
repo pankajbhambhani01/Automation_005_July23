@@ -15,6 +15,7 @@
         <java-version>1.8</java-version>
         <surefire-version>3.0.0-M6</surefire-version>
         <testngxml>testng.xml</testngxml>
+        <resassured-version>4.0.0</resassured-version>
     </properties>
 
     <dependencies>
@@ -29,6 +30,27 @@
             <version>${testng-version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${resassured-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>
@@ -58,3 +80,9 @@
 </project>
 
 <!--mvn goal -> mvn clean test-->
+<!-- mvn clean test -Dtestngxml=testng1.xml -->
+<!-- mvn clean test -Dtestngxml=testng1.xml -Dbrowser=chrome-->
+<!-- CI/CD - Continious integration and continious development - due to jenkins job or pipeline -->
+<!-- version control tool - Github -->
+<!-- key map -> file > settings > keymap > eclipse -->
+<!-- search -> ctrl + h ; file find -> ctrl + shift + R -->

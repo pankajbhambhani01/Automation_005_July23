@@ -19,6 +19,8 @@ public class Browser {
             driver = new ChromeDriver();
         }else if(browserName.equalsIgnoreCase("edge")){
 
+        }else{
+            System.out.println("Given browser is not present");
         }
         driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
     }

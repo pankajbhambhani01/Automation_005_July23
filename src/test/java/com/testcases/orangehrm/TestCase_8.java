@@ -4,12 +4,14 @@ import com.pages.orangehrm.HomePage;
 import com.utility.Browser;
 import com.utility.Constant_1;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class TestCase_8 {
 
     @Test
-    public void testCase001() throws Exception{
+    @Parameters ({"username", "Password"})
+    public void testCase001(String username, String password) throws Exception{
         Browser br = new Browser();
         br.launchBrowser("chrome");
         br.navigateUrl(Constant_1.url);

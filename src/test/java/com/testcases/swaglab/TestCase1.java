@@ -18,12 +18,13 @@ public class TestCase1 {
     @BeforeMethod
     public void beforeMethod(){
         br = new Browser();
-        br.launchBrowser("chrome");
+        String browser = System.getProperty("browser");
+        br.launchBrowser(browser);
         br.navigateUrl(Constant.url);
         br.maximize();
     }
 
-    @Test
+    @Test(groups = {"smoke"})
     public void testCase001() {
         Properties td = Constant.td;
         Util.wait(5000);
