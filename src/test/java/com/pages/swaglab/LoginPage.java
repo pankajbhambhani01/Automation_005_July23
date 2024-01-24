@@ -64,11 +64,23 @@ public class LoginPage {
     }
 
     public void validateSwagLabsLogo(){
-        boolean isDisplayed = logo.isDisplayed();
-        Assert.assertTrue(isDisplayed);
+        wait.until(ExpectedConditions.visibilityOf(logo)).isDisplayed();
+        boolean Displayed = logo.isDisplayed();
+        Assert.assertTrue(Displayed);
+        Reporter.log("logo is Displayed");
+    }
+    public void validateerrorbtn(){
+        wait.until(ExpectedConditions.visibilityOf(error_btn)).isDisplayed();
+        boolean Displayed =error_btn.isDisplayed();
+        Assert.assertTrue(Displayed);
+        Reporter.log("error_btn Displayed");
+    }
+    public void validateloginbot(){
+        wait.until(ExpectedConditions.visibilityOf(login_bot)).isDisplayed();
+        boolean Displayed = login_bot.isDisplayed();
+        Assert.assertTrue(Displayed);
+        Reporter.log("login_bot Displayed");
     }
 
 }
-
-
 

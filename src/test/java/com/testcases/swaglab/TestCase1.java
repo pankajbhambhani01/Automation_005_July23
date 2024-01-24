@@ -46,6 +46,8 @@ public class TestCase1 {
         Properties td = Constant.td;
         LoginPage loginPage = new LoginPage(br.getDriver());
         loginPage.validateSwagLabsLogo();
+        loginPage.validateerrorbtn();
+        loginPage.validateloginbot();
         loginPage.enterUsername(td.getProperty("username"));
         loginPage.enterPassword(td.getProperty("password"));
         loginPage.clickLogin();

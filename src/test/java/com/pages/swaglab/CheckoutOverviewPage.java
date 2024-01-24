@@ -5,10 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 public class CheckoutOverviewPage {
 
    private WebDriver driver;
+   private WebDriverWait wait;
 
    @FindBy(partialLinkText = "inventory-item.html?id=4")
    private WebElement lnk_ItemName;
@@ -26,23 +30,28 @@ public class CheckoutOverviewPage {
    public CheckoutOverviewPage(WebDriver driver){
       this.driver = driver;
       PageFactory.initElements(driver,this);
+      wait = new WebDriverWait(driver,90);
       }
 
       public void clickItemName(){
-          lnk_ItemName.click();
+      wait.until(ExpectedConditions.elementToBeClickable(lnk_ItemName)).click();
+         Reporter.log("Item Name clicked");
       }
 
       public void clickCartBtn(){
-          btn_Cart.click();
+      wait.until(ExpectedConditions.elementToBeClickable(btn_Cart)).click();
+          Reporter.log("Cart Button Clicked");
       }
 
       public void clickCancelBtn() {
-          btn_Cancel.click();
+         wait.until(ExpectedConditions.elementToBeClickable(btn_Cancel)).click();
+          Reporter.log("Cancel Button Clicked");
       }
 
       public void clickFinishBtn(){
-      btn_Finish.click();
-      }
-
-
+         wait.until(ExpectedConditions.elementToBeClickable(btn_Finish)).click();
+          Reporter.log("Finish Button Clicked");
    }
+
+
+}
