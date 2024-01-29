@@ -29,11 +29,11 @@ git pull if doesn't work ( Conflict )
 git reset --hard
 git pull
 ----------------------------------------------
-api automation
-git branch -- ?
-selenium grid
-actions in selenium
-Map
-framework structure
-------------------------------------------------
-Git/Maven/ + api manual revise - we will discuss
+Gird commands -
+
+to run the hub
+
+java -jar jarfilename -role hub
+
+to run the node -
+java -jar jarfilename -role node -hub url -Dwebdriver.chrome.driver=pathOfdriver

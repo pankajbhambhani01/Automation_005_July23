@@ -3,7 +3,10 @@ package com.utility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class Browser {
@@ -19,7 +22,17 @@ public class Browser {
             driver = new ChromeDriver();
         }else if(browserName.equalsIgnoreCase("edge")){
 
-        }else{
+        }else if(browserName.equalsIgnoreCase("grid")){
+            String nodeUrl = System.getProperty("gridUrl");
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setBrowserName("chrome");
+            try {
+                driver = new RemoteWebDriver(new URL(nodeUrl), capabilities);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        else {
             System.out.println("Given browser is not present");
         }
         driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);

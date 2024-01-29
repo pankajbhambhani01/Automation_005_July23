@@ -50,8 +50,8 @@ public class LoginPage {
     }
 
     public void enterUsername(String username) {
-        wait.until(ExpectedConditions.visibilityOf(txt_username)).sendKeys(username);
-        Reporter.log("Entered the username " + username);
+            wait.until(ExpectedConditions.visibilityOf(txt_username)).sendKeys(username);
+            Reporter.log("Entered the username " + username);
     }
 
     public void enterPassword(String password) {

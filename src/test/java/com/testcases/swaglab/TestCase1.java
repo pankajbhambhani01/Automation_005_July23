@@ -16,7 +16,7 @@ public class TestCase1 {
     Browser br = null;
 
     @BeforeMethod
-    public void beforeMethod(){
+    public void beforeMethod() {
         br = new Browser();
         String browser = System.getProperty("browser");
         br.launchBrowser(browser);
@@ -42,7 +42,7 @@ public class TestCase1 {
     }
 
     @Test
-    public void testcase002(){
+    public void testcase002() {
         Properties td = Constant.td;
         LoginPage loginPage = new LoginPage(br.getDriver());
         loginPage.validateSwagLabsLogo();
@@ -54,7 +54,7 @@ public class TestCase1 {
     }
 
     @AfterMethod
-    public void afterMethod(){
+    public void afterMethod() {
         Util.takeScreenShot(br.getDriver(), "testCase001");
         br.closeBrowser();
     }

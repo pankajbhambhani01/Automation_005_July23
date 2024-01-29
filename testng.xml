@@ -8,7 +8,7 @@
         <classes>
             <class name="com.testcases.swaglab.TestCase1">
                 <methods>
-                    <include name="testcase002"/>
+                    <include name="testCase001"/>
                 </methods>
             </class>
             
